@@ -71,8 +71,9 @@ const useGamePlay = () => {
     }
   }, [guessedLettersArray]);
 
-  const checkIfWin = (activePhrase: any, guessedLetters: string[]) => {
-    for (let i in activePhrase) {
+  const checkIfWin = (activePhrase: string, guessedLetters: string[]) => {
+    // for (let i in activePhrase) {
+    for (let i = 0; i <= activePhrase.length - 1; i++) {
       const activeLetter = activePhrase[i];
       if (activeLetter === " ") {
         continue;
