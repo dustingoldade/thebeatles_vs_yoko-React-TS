@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export type NewGameBtnProps = {
   newGame: () => void;
   buttonTitle: string;
@@ -7,11 +9,13 @@ export type LettersToDisplayProps = {
   lettersToDisplay: string[];
 };
 
+type ActiveImgs = {
+  activeYokoImg: string;
+  activeBeatlesImg: string;
+};
+
 export type ScoreboardProps = {
-  activeImgs: {
-    activeYokoImg: string;
-    activeBeatlesImg: string;
-  };
+  activeImgs: ActiveImgs;
   scoreBoardGridSizes: {
     leftGrid: number;
     rightGrid: number;
@@ -42,10 +46,7 @@ export type WinsAndLossesProps = {
 };
 
 export type ModalProps = {
-  activeImgs: {
-    activeYokoImg: string;
-    activeBeatlesImg: string;
-  };
+  activeImgs: ActiveImgs;
   activePhrase: string;
   winModalText: boolean;
   winLossScores: {

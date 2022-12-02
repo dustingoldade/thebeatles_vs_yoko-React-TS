@@ -1,16 +1,16 @@
 import { Box, Typography } from "@mui/material";
-import * as React from "react";
 import "./Header.css";
 import jsonText from "../../locales/en.json";
-import jsonMuiStyles from "../../locales/muiStyles.json";
-
+import muiStylesENUM from "../../locales/muiStylesENUM";
 const {
   DISPLAY_FLEX,
   JUSTIFY_CONTENT_CENTER,
   ALIGN_ITEMS_CENTER,
   TEXT_VARIANT_H4,
   TEXT_ALIGN_CENTER,
-} = jsonMuiStyles;
+  COLOR_PRIMARY,
+  FONT_FAMILY,
+} = muiStylesENUM;
 const { Game_Title } = jsonText;
 
 const Header = () => {
@@ -21,12 +21,9 @@ const Header = () => {
       alignItems={ALIGN_ITEMS_CENTER}
     >
       <Typography
-        // variant={"TEXT_VARIANT_H4"}
-        // textAlign={"TEXT_ALIGN_CENTER"}
-        variant={"h4"}
-        textAlign={"center"}
-        className="Header__font-family Header__color"
-        sx={{ my: 1 }}
+        variant={TEXT_VARIANT_H4}
+        textAlign={TEXT_ALIGN_CENTER}
+        sx={{ my: 1, color: COLOR_PRIMARY, fontFamily: FONT_FAMILY }}
       >
         {Game_Title}
       </Typography>

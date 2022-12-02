@@ -32,11 +32,11 @@ const useGamePlay = () => {
 
   const newGame = () => {
     // line 35 is required as the useEffect that sets the scoreBoardGridSizes has the scoreBoardArray as a dependency. The result is that occasional timing of the functed updates the new photo is executed split second before the grid size is shown. This results in a flash of the new photo, which is visually annoying
-    setScoreBoardGridSizes({
-      leftGrid: 0,
-      rightGrid: 0,
-      centerGrid: 0,
-    });
+    // setScoreBoardGridSizes({
+    //   leftGrid: 0,
+    //   rightGrid: 0,
+    //   centerGrid: 12,
+    // });
 
     setScoreBoardArray([0, 0, 0, 0]);
     setBlockAllLetters(false);
@@ -72,7 +72,6 @@ const useGamePlay = () => {
   }, [guessedLettersArray]);
 
   const checkIfWin = (activePhrase: string, guessedLetters: string[]) => {
-    // for (let i in activePhrase) {
     for (let i = 0; i <= activePhrase.length - 1; i++) {
       const activeLetter = activePhrase[i];
       if (activeLetter === " ") {

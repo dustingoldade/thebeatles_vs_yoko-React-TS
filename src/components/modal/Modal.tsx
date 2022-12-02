@@ -3,9 +3,9 @@ import { ModalProps } from "../../locales/ts.models";
 import "./Modal.css";
 import { Box, Typography, Button } from "@mui/material";
 import jsonText from "../../locales/en.json";
-import jsonMuiStyles from "../../locales/muiStyles.json";
+import jsonMuiStylesENUM from "../../locales/muiStylesENUM";
 const { Winner_Modal_Phrase, Loser_Modal_Phrase, Play_Again_Button } = jsonText;
-const { TEXT_VARIANT_H5, TEXT_VARIANT_H6 } = jsonMuiStyles;
+const { TEXT_VARIANT_H5, TEXT_VARIANT_H6, COLOR_PRIMARY } = jsonMuiStylesENUM;
 
 const Modal: React.FC<ModalProps> = ({
   activeImgs,
@@ -24,10 +24,10 @@ const Modal: React.FC<ModalProps> = ({
 
   const ModalContent = (
     <>
-      <img src={pic} className="Modal__img" />
+      <img src={pic} className="Modal__img" alt="" />
       <Box sx={{ py: "1rem" }}>
-        <Typography variant={"h5"}>{phrase}</Typography>
-        <Typography variant={"h6"}>"{activePhrase}"</Typography>
+        <Typography variant={TEXT_VARIANT_H5}>{phrase}</Typography>
+        <Typography variant={TEXT_VARIANT_H6}>"{activePhrase}"</Typography>
       </Box>
     </>
   );
@@ -37,7 +37,18 @@ const Modal: React.FC<ModalProps> = ({
       <Box className="Modal__card">
         {ModalContent}
         <WinsAndLosses winLossScores={winLossScores} />
-        <Button sx={{ mt: "1rem" }} variant="contained" onClick={newGame}>
+        <Button
+          sx={{
+            "&:hover": {
+              opacity: 0.5,
+              bgcolor: COLOR_PRIMARY,
+            },
+            mt: "1rem",
+            bgcolor: COLOR_PRIMARY,
+          }}
+          variant="contained"
+          onClick={newGame}
+        >
           {Play_Again_Button}
         </Button>
       </Box>

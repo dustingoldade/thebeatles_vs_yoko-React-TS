@@ -1,8 +1,9 @@
 import { Grid, Box } from "@mui/material";
 import { KeyboardProps } from "../../locales/ts.models";
 import Key from "./key/Key";
-import jsonMuiStyles from "../../locales/muiStyles.json";
-const { DISPLAY_FLEX, ALIGN_ITEMS_CENTER, DIRECTION_COLUMN } = jsonMuiStyles;
+import jsonMuiStylesENUM from "../../locales/muiStylesENUM";
+const { DISPLAY_FLEX, ALIGN_ITEMS_CENTER, DIRECTION_COLUMN } =
+  jsonMuiStylesENUM;
 
 const lettersRowOne = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
 const lettersRowTwo = ["J", "K", "L", "M", "N", "O", "P", "Q", "R"];
@@ -20,7 +21,11 @@ const Keyboard: React.FC<KeyboardProps> = ({
   };
 
   return (
-    <Grid container direction={"column"} alignItems={ALIGN_ITEMS_CENTER}>
+    <Grid
+      container
+      direction={DIRECTION_COLUMN}
+      alignItems={ALIGN_ITEMS_CENTER}
+    >
       {letterRows.map((row, i) => (
         <Grid item xs={3} key={i}>
           <Box display={DISPLAY_FLEX}>
